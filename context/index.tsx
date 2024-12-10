@@ -1,8 +1,8 @@
 'use client'
 
-import { wagmiAdapter, projectId } from '@/config'
+import { wagmiAdapter, projectId, solanaWeb3JsAdapter } from '@/config'
 import { createAppKit } from '@reown/appkit/react' 
-import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato} from '@reown/appkit/networks'
+import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet} from '@reown/appkit/networks'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React, { type ReactNode } from 'react'
@@ -25,7 +25,7 @@ const metadata = { //this is optional
 
 // Create the modal
 const modal = createAppKit({
-  adapters: [wagmiAdapter],
+  adapters: [wagmiAdapter, solanaWeb3JsAdapter],
   chainImages: { // Customize networks' logos
     5000: '/mantle.png', // <chainId>: 'www.network.com/logo.png'
     534_352: '/scroll.png',
@@ -34,7 +34,7 @@ const modal = createAppKit({
     1946: '/soneium.png'
   },
   projectId,
-  networks: [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato],
+  networks: [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet],
   defaultNetwork: mainnet,
   metadata: metadata,
   features: {
