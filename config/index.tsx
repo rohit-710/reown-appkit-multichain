@@ -13,9 +13,9 @@ if (!projectId) {
 
 export const networks = [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet]
 
-export const solanaWeb3JsAdapter = new SolanaAdapter({
+export const solanaWeb3JsAdapter = typeof window !== 'undefined' ? new SolanaAdapter({
   wallets: [new PhantomWalletAdapter(), new SolflareWalletAdapter()]
-})
+}) : null;
 
 //Set up the Wagmi Adapter (Config)
 export const wagmiAdapter = new WagmiAdapter({
