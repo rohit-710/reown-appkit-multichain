@@ -1,6 +1,7 @@
 import { cookieStorage, createStorage, http } from '@wagmi/core'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
-import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet} from '@reown/appkit/networks'
+import { BitcoinAdapter } from '@reown/appkit-adapter-bitcoin'
+import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet, bitcoin, AppKitNetwork} from '@reown/appkit/networks'
 import { SolanaAdapter } from '@reown/appkit-adapter-solana/react'
 import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
 
@@ -11,7 +12,7 @@ if (!projectId) {
   throw new Error('Project ID is not defined')
 }
 
-export const networks = [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet]
+export const networks = [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet, bitcoin]
 
 export const solanaWeb3JsAdapter = typeof window !== 'undefined' ? new SolanaAdapter({
   wallets: [new PhantomWalletAdapter(), new SolflareWalletAdapter()]
@@ -24,6 +25,11 @@ export const wagmiAdapter = new WagmiAdapter({
   }),
   ssr: false,
   networks,
+  projectId
+})
+
+export const bitcoinAdapter = new BitcoinAdapter({
+  networks:[bitcoin],
   projectId
 })
 
