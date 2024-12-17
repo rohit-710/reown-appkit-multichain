@@ -25,7 +25,7 @@ const metadata = { //this is optional
 
 // Create the modal
 const modal = createAppKit({
-  adapters: [wagmiAdapter, ...(solanaWeb3JsAdapter ? [solanaWeb3JsAdapter] : []), ...(bitcoinAdapter ? [bitcoinAdapter] : [])],
+  adapters: [wagmiAdapter,solanaWeb3JsAdapter, bitcoinAdapter].filter(Boolean),
   chainImages: { // Customize networks' logos
     5000: '/mantle.png', // <chainId>: 'www.network.com/logo.png'
     534_352: '/scroll.png',
