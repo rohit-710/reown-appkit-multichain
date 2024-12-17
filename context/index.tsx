@@ -1,8 +1,8 @@
 'use client'
 
-import { wagmiAdapter, projectId, solanaWeb3JsAdapter } from '@/config'
+import { wagmiAdapter, projectId, solanaWeb3JsAdapter, bitcoinAdapter } from '@/config'
 import { createAppKit } from '@reown/appkit/react' 
-import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet} from '@reown/appkit/networks'
+import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet, bitcoin} from '@reown/appkit/networks'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React, { type ReactNode } from 'react'
@@ -25,16 +25,17 @@ const metadata = { //this is optional
 
 // Create the modal
 const modal = createAppKit({
-  adapters: [wagmiAdapter, ...(solanaWeb3JsAdapter ? [solanaWeb3JsAdapter] : [])],
+  adapters: [wagmiAdapter, ...(solanaWeb3JsAdapter ? [solanaWeb3JsAdapter] : []), ...(bitcoinAdapter ? [bitcoinAdapter] : [])],
   chainImages: { // Customize networks' logos
     5000: '/mantle.png', // <chainId>: 'www.network.com/logo.png'
     534_352: '/scroll.png',
     80084: '/berachain.png',
     2818: '/morph.png',
-    1946: '/soneium.png'
+    1946: '/soneium.png',
+    '000000000019d6689c085ae165831e93': '/Bitcoin.png',
   },
   projectId,
-  networks: [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet],
+  networks: [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet, bitcoin],
   defaultNetwork: mainnet,
   metadata: metadata,
   features: {
