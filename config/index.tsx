@@ -1,7 +1,7 @@
 import { cookieStorage, createStorage, http } from '@wagmi/core'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
 import { BitcoinAdapter } from '@reown/appkit-adapter-bitcoin'
-import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet, bitcoin, AppKitNetwork} from '@reown/appkit/networks'
+import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet, bitcoin} from '@reown/appkit/networks'
 import { SolanaAdapter } from '@reown/appkit-adapter-solana/react'
 import { PhantomWalletAdapter, SolflareWalletAdapter } from '@solana/wallet-adapter-wallets'
 
@@ -23,14 +23,14 @@ export const wagmiAdapter = new WagmiAdapter({
   storage: createStorage({
     storage: cookieStorage
   }),
-  ssr: false,
+  ssr: true,
   networks,
   projectId
 })
 
-export const bitcoinAdapter = new BitcoinAdapter({
-  networks:[bitcoin],
-  projectId
-})
+export const bitcoinAdapter = typeof window !== 'undefined' ? new BitcoinAdapter({
+  networks: [bitcoin],
+  projectId,
+}) : null;
 
 export const config = wagmiAdapter.wagmiConfig
