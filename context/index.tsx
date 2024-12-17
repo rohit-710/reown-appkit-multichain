@@ -31,7 +31,8 @@ const modal = createAppKit({
     534_352: '/scroll.png',
     80084: '/berachain.png',
     2818: '/morph.png',
-    1946: '/soneium.png'
+    1946: '/soneium.png',
+    '000000000019d6689c085ae165831e93': '/Bitcoin.png',
   },
   projectId,
   networks: [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, solanaDevnet, solanaTestnet, bitcoin],
@@ -40,7 +41,7 @@ const modal = createAppKit({
   features: {
     analytics: true, // Optional - defaults to your Cloud configuration
     email: true, // default to true
-    socials: [],
+    socials: ['google', 'x', 'github', 'discord', 'apple', 'facebook', 'farcaster'],
     emailShowWallets: true, // default to true
   },
   themeMode: 'light'
