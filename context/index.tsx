@@ -2,7 +2,7 @@
 
 import { wagmiAdapter, projectId, solanaWeb3JsAdapter, bitcoinAdapter } from '@/config'
 import { createAppKit } from '@reown/appkit/react' 
-import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, bitcoin} from '@reown/appkit/networks'
+import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneium, solana, bitcoin} from '@reown/appkit/networks'
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import React, { type ReactNode } from 'react'
@@ -18,8 +18,8 @@ if (!projectId) {
 // Set up metadata
 const metadata = { //this is optional
   name: "appkit-example",
-  description: "AppKit Example - EVM",
-  url: "https://reown-appkit-evm.vercel.app", // origin must match your domain & subdomain
+  description: "AppKit Example - multichain",
+  url: "https://reown-appkit-multichain.vercel.app", // origin must match your domain & subdomain
   icons: ["https://avatars.githubusercontent.com/u/179229932"]
 }
 
@@ -35,7 +35,7 @@ const modal = createAppKit({
     '000000000019d6689c085ae165831e93': '/Bitcoin.png',
   },
   projectId,
-  networks: [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, bitcoin],
+  networks: [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneium, solana, bitcoin],
   defaultNetwork: mainnet,
   metadata: metadata,
   features: {

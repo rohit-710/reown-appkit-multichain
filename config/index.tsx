@@ -1,6 +1,7 @@
 import { cookieStorage, createStorage, http } from '@wagmi/core'
 import { WagmiAdapter } from '@reown/appkit-adapter-wagmi'
-import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana, bitcoin} from '@reown/appkit/networks'
+import { mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneium, bitcoin} from '@reown/appkit/networks'
+
 
 // Get projectId from https://cloud.reown.com
 export const projectId = process.env.NEXT_PUBLIC_PROJECT_ID
@@ -20,7 +21,7 @@ if (typeof window !== 'undefined') {
   SolflareWalletAdapter = require('@solana/wallet-adapter-wallets').SolflareWalletAdapter;
 }
 
-export const networks = [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneiumMinato, solana]
+export const networks = [mainnet, arbitrum, scroll, morph, berachainTestnetbArtio, mantle, soneium]
 
 // Set up the Wagmi Adapter (Config)
 export const wagmiAdapter = new WagmiAdapter({
