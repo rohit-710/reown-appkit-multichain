@@ -31,7 +31,7 @@ const modal = createAppKit({
     534_352: '/scroll.png',
     80084: '/berachain.png',
     2818: '/morph.png',
-    1946: '/soneium.png',
+    1868: '/soneium.png',
     '000000000019d6689c085ae165831e93': '/Bitcoin.png',
   },
   projectId,
